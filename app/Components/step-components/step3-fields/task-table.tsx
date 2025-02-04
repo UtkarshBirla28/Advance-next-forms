@@ -9,8 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Task } from "../step-3";
-
+import { Task } from "../data/tasks";
 import { tasksColumns } from "./tasks-columns";
 import { Input } from "@/components/ui/input";
 
@@ -29,9 +28,9 @@ export function TasksTable({ table }: { table: ReacTable<Task> }) {
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   );
                 })}

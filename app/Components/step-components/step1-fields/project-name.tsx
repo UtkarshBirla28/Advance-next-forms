@@ -26,7 +26,7 @@ export default function ProjectName({
   //
   useEffect(() => {
     trigger("name");
-  }, [nameValue]);
+  }, [nameValue, trigger]);
 
   return (
     <div className="h-28">

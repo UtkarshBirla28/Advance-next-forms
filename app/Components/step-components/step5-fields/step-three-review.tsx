@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { FaCode, FaPaintBrush } from "react-icons/fa";
 import { CombinedFormData } from "@/app/page";
+import { Card } from "@/components/ui/card";
 
 export default function StepThreeReview({
   combinedFormData,

@@ -1,19 +1,18 @@
+import { UseFormReturn } from "react-hook-form";
+import { FaProjectDiagram } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa6";
+import { LuMilestone } from "react-icons/lu";
+import { RiSpaceShipFill, RiTeamFill } from "react-icons/ri";
+import { stepOneFormData } from "./step-components/schemas/step1-schema";
+import { stepTwoFormData } from "./step-components/schemas/step2-schema";
+import { stepThreeFormData } from "./step-components/schemas/step3-schema";
+import { StepFourFormData } from "./step-components/schemas/step4-schema";
 import Step1 from "./step-components/step-1";
 import Step2 from "./step-components/step-2";
 import Step3 from "./step-components/step-3";
 import Step4 from "./step-components/step-4";
 import Step5 from "./step-components/step-5";
 import { Step } from "./stepper/types";
-import { FaProjectDiagram } from "react-icons/fa";
-import { RiTeamFill } from "react-icons/ri";
-import { LuMilestone } from "react-icons/lu";
-import { FaMoneyBillWave } from "react-icons/fa6";
-import { RiSpaceShipFill } from "react-icons/ri";
-import { UseFormReturn, UseFormStateReturn } from "react-hook-form";
-import { stepOneFormData } from "./step-components/schemas/step1-schema";
-import { stepTwoFormData } from "./step-components/schemas/step2-schema";
-import { stepThreeFormData } from "./step-components/schemas/step3-schema";
-import { StepFourFormData } from "./step-components/schemas/step4-schema";
 
 export const stepData = {
   step1: {

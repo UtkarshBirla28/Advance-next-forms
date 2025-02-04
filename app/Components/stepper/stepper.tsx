@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Step } from "./types";
 import { IconType } from "react-icons";
+import { Step } from "./types";
 
 export const Stepper = ({
   steps,
@@ -69,9 +68,8 @@ function StepIndicator({
 }) {
   return (
     <div
-      className={`  p-3 rounded-full ${
-        isActive ? "bg-primary/10" : "bg-gray-100"
-      }`}
+      className={`  p-3 rounded-full ${isActive ? "bg-primary/10" : "bg-gray-100"
+        }`}
     >
       <Icon className={`${isActive ? "text-primary" : "text-gray-400"}`} />
     </div>

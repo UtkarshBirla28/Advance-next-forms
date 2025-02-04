@@ -29,7 +29,7 @@ export default function Step2({
 
       <div className="  mt-5 gap-8">
         <TeamMembers users={users} setUsers={setUsers} methods={methods} />
-        <TeamLeader users={users} setUsers={setUsers} />
+        <TeamLeader users={users} setUsers={setUsers} methods={methods} />
       </div>
     </div>
   );

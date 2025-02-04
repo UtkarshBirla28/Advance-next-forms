@@ -1,17 +1,14 @@
-import { ColumnDef } from "@tanstack/react-table";
-import { Task } from "../step-3";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ColumnDef } from "@tanstack/react-table";
+import { Task } from "../data/tasks";
 
 import { IoMdArrowUp } from "react-icons/io";
-import { IoArrowBack } from "react-icons/io5";
-import { IoArrowDown } from "react-icons/io5";
+import { IoArrowBack, IoArrowDown } from "react-icons/io5";
 
 import {
   ArrowUpCircle,
   CheckCircle2,
-  Circle,
-  HelpCircle,
-  XCircle,
+  Circle
 } from "lucide-react";
 
 // type TaskStatus = "Not Started" | "In Progress" | "Completed";
@@ -55,10 +52,10 @@ function formatDate(date: Date): string {
     day % 10 === 1 && day !== 11
       ? "st"
       : day % 10 === 2 && day !== 12
-      ? "nd"
-      : day % 10 === 3 && day !== 13
-      ? "rd"
-      : "th";
+        ? "nd"
+        : day % 10 === 3 && day !== 13
+          ? "rd"
+          : "th";
 
   return `${day}${suffix} ${month} ${year}`;
 }

@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { CombinedFormData } from "@/app/page";
+import { Card } from "@/components/ui/card";
 
 function formatNumber(number: number | undefined) {
   const formattedNumber = new Intl.NumberFormat("en-US", {

@@ -1,13 +1,12 @@
 "use client";
 
-import {
-  FaPaintBrush,
-  FaCode,
-  FaCheckCircle,
-  FaRocket,
-  FaLess,
-} from "react-icons/fa";
 import { IconType } from "react-icons";
+import {
+  FaCheckCircle,
+  FaCode,
+  FaPaintBrush,
+  FaRocket
+} from "react-icons/fa";
 
 export type TaskStatus = "Not Started" | "In Progress" | "Completed";
 export type TaskPriority = "Low" | "Medium" | "High";

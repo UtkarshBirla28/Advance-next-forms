@@ -1,27 +1,26 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 import Stepper from "./Components/stepper/stepper";
 import { steps } from "./Components/steps-data";
-import { Button } from "@/components/ui/button";
-import { FaArrowLeft } from "react-icons/fa";
 
 // React hook form and zod resolver imports
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 // Import schemas and types
+import { z } from "zod";
+import { tasks } from "./Components/step-components/data/tasks";
 import {
-  stepOneSchema,
   stepOneFormData,
+  stepOneSchema,
 } from "./Components/step-components/schemas/step1-schema";
-import { usersArray } from "./Components/step-components/step2-fields/step2-data";
-import { User } from "./Components/step-components/step2-fields/team-members/team-members";
 import {
   stepTwoFormData,
   stepTwoSchema,
 } from "./Components/step-components/schemas/step2-schema";
-import { tasks } from "./Components/step-components/data/tasks";
 import {
   stepThreeFormData,
   stepThreeSchema,
@@ -30,7 +29,9 @@ import {
   StepFourFormData,
   stepFourSchema,
 } from "./Components/step-components/schemas/step4-schema";
-import { z } from "zod";
+import { usersArray } from "./Components/step-components/step2-fields/step2-data";
+import { User } from "./Components/step-components/step2-fields/team-members/team-members";
+import { combinedSchema } from "./utils/schema";
 
 // Button labels for navigation
 const BUTTON_LABELS = {
@@ -40,12 +41,7 @@ const BUTTON_LABELS = {
 };
 
 // Combined schema for all steps
-export const combinedSchema = z.object({
-  stepOne: stepOneSchema,
-  stepTwo: stepTwoSchema,
-  stepThree: stepThreeSchema,
-  stepFour: stepFourSchema,
-});
+
 
 // Infer the type for the combined schema
 export type CombinedFormData = z.infer<typeof combinedSchema>;
@@ -147,7 +143,7 @@ export default function Home() {
       setValueStepTwo("users", users);
       triggerStepTwo();
     }
-  }, [currentStep, triggerStepTwo, users]);
+  }, [currentStep, triggerStepTwo, users, setValueStepTwo]);
 
   // Update the tasks in the form state when step 3 is active
   useEffect(() => {
@@ -155,7 +151,7 @@ export default function Home() {
       setValueStepThree("tasks", allTasks);
       triggerStepThree();
     }
-  }, [currentStep, triggerStepThree, allTasks]);
+  }, [currentStep, triggerStepThree, allTasks, setValueStepThree]);
 
   // Helper functions for navigation
   const isFirstStep = currentStep === 0;

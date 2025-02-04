@@ -8,39 +8,31 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { FaPlus, FaUser } from "react-icons/fa";
-import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
-import { User } from "./team-members";
 import { IoIosArrowDown } from "react-icons/io";
-
-type Checked = DropdownMenuCheckboxItemProps["checked"];
+import { User } from "./team-members";
 
 //
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
+  CommandList
 } from "@/components/ui/command";
 
 import {
   DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuCheckboxItem,
+  DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { Dispatch, SetStateAction, useState } from "react";
 import { IoMdPersonAdd } from "react-icons/io";
 import { IoPersonRemoveSharp } from "react-icons/io5";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { Dispatch, SetStateAction, useState } from "react";
-import { rolesArray } from "../step2-data";
 import { TbFlag2Filled } from "react-icons/tb";
+import { rolesArray } from "../step2-data";
 
 export default function MemberDialog({
   users,
@@ -87,7 +79,7 @@ export default function MemberDialog({
 
               {notAddedUsers.length > 0 && (
                 <CommandGroup heading="All Members">
-                  {notAddedUsers.map((user, index) => (
+                  {notAddedUsers.map((user) => (
                     <CommandItem key={user.id}>
                       {/* call user item component, and pass in it the user object */}
                       <UserItem user={user} setUsers={setUsers} />
@@ -173,7 +165,7 @@ function UserItem({
 
 //role drop down
 function RolesDropDown({ user }: { user: User }) {
-  const [roles, setRoles] = useState(() => {
+  const [roles] = useState(() => {
     return rolesArray.map((role) =>
       role.name === user.role
         ? { ...role, isChecked: true }
@@ -192,12 +184,11 @@ function RolesDropDown({ user }: { user: User }) {
       <DropdownMenuContent className="w-36 poppins">
         {roles.map((role, index) => (
           <DropdownMenuCheckboxItem
-            className={`${
-              role.isChecked ? "font-bold" : "text-slate-700"
-            } h-10`}
+            className={`${role.isChecked ? "font-bold" : "text-slate-700"
+              } h-10`}
             key={index}
             checked={role.isChecked}
-            // onCheckedChange={setShowStatusBar}
+          // onCheckedChange={setShowStatusBar}
           >
             {role.name}
           </DropdownMenuCheckboxItem>

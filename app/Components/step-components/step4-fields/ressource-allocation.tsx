@@ -1,13 +1,11 @@
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   FieldErrors,
   UseFormRegister,
-  UseFormSetError,
   UseFormTrigger,
-  UseFormWatch,
+  UseFormWatch
 } from "react-hook-form";
 import { MdError } from "react-icons/md";
 import { StepFourFormData } from "../schemas/step4-schema";
@@ -28,7 +26,7 @@ export default function ResourceAllocation({
 
   useEffect(() => {
     trigger("resourceAllocation");
-  }, [resourceAllocation]);
+  }, [resourceAllocation, trigger]);
 
   // jsx
   return (

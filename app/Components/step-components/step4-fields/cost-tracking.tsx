@@ -4,13 +4,12 @@ import { Label } from "@/components/ui/label";
 
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
-import { Control, Controller, FieldErrors } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 import { StepFourFormData } from "../schemas/step4-schema";
 
 export default function CostTrackingMethod({

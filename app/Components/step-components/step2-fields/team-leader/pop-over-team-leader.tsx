@@ -21,7 +21,7 @@ import { Dispatch, SetStateAction } from "react";
 
 import { TbFlagFilled } from "react-icons/tb";
 
-export default function PopOverTeamLeader({ users, setUsers }: UserProps) {
+export default function PopOverTeamLeader({ users, setUsers, methods }: UserProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -31,7 +31,7 @@ export default function PopOverTeamLeader({ users, setUsers }: UserProps) {
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="poppins w-[330px]">
-        <TeamsCommandList users={users} setUsers={setUsers} />
+        <TeamsCommandList users={users} setUsers={setUsers} methods={methods} />
       </PopoverContent>
     </Popover>
   );
@@ -64,14 +64,16 @@ function TeamsCommandList({ users, setUsers }: UserProps) {
   }) {
     //
     function updateUserLeadrship() {
-      setUsers((prevState) =>
-        prevState.map((u) => {
-          if (u.id === user.id) {
-            return { ...u, isLeader: true };
-          }
-          return { ...u, isLeader: false };
-        })
-      );
+      if (setUsers) {
+        setUsers((prevState) =>
+          prevState.map((u) => {
+            if (u.id === user.id) {
+              return { ...u, isLeader: true };
+            }
+            return { ...u, isLeader: false };
+          })
+        );
+      }
     }
 
     return (

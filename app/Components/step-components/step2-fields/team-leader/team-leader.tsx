@@ -1,17 +1,18 @@
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MdError } from "react-icons/md";
-import PopOverTeamLeader from "./pop-over-team-leader";
-import { User } from "../team-members/team-members";
 import { Dispatch, SetStateAction } from "react";
 import { FaUser } from "react-icons/fa";
-
+import { User } from "../team-members/team-members";
+import PopOverTeamLeader from "./pop-over-team-leader";
+import { UseFormReturn } from "react-hook-form";
+import { stepTwoFormData } from "../../schemas/step2-schema";
 export default function TeamLeader({
   users,
   setUsers,
+  methods
 }: {
   users: User[];
   setUsers: Dispatch<SetStateAction<User[]>> | undefined;
+  methods: UseFormReturn<stepTwoFormData>;
 }) {
   const teamLeader = users.find((user) => user.isLeader);
   return (
@@ -36,7 +37,7 @@ export default function TeamLeader({
           )}
         </div>
 
-        <PopOverTeamLeader users={users} setUsers={setUsers} />
+        <PopOverTeamLeader users={users} setUsers={setUsers} methods={methods} />
       </div>
     </div>
   );

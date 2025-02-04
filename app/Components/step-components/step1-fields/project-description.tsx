@@ -29,7 +29,7 @@ export default function ProjectDescription({
   const watchDescription = watch("description");
   useEffect(() => {
     trigger("description");
-  }, [watchDescription]);
+  }, [watchDescription, trigger]);
 
   return (
     <div className=" h-[147px] ">
